@@ -5,7 +5,8 @@
            id="event-text"
            name="event-text"
            [(ngModel)]="eventText"
-           (ngModelChange)="handleEvent($event)">
+           (ngModelChange)="handleEvent($event)"
+           (blur)="eventText=''">
   </div>
   <div>
     <label for="model-text">At ngModel time</label>
@@ -14,10 +15,11 @@
            name="model-text"
            #modelHook="ngModel"
            [(ngModel)]="modelText"
-           (ngModelChange)="handleModel(modelHook)">
+           (ngModelChange)="handleModel(modelHook)"
+           (blur)="modelText=''">
   </div>
   <div>
-    <p>Data at handler time: <span>{{ handlerText }}</span></p>
+    <p>Data at handler time: <span [class.highlight]="modelText && handlerText !== modelText">{{ handlerText }}</span></p>
     <p>Data at $event time: <span>{{ eventText }}</span></p>
     <p>Data at ngModel time: <span>{{ modelText }}</span></p>
   </div>

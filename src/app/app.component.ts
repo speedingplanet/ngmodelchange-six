@@ -4,7 +4,7 @@ import {NgModel} from '@angular/forms';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
-  styles: []
+  styles: ['.highlight {background-color: yellow}']
 })
 export class AppComponent {
   @Input()
