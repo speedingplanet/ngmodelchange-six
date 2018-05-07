@@ -1,0 +1,24 @@
+<form>
+  <div>
+    <label for="event-text">At $event time</label>
+    <input type="text"
+           id="event-text"
+           name="event-text"
+           [(ngModel)]="eventText"
+           (ngModelChange)="handleEvent($event)">
+  </div>
+  <div>
+    <label for="model-text">At ngModel time</label>
+    <input type="text"
+           id="model-text"
+           name="model-text"
+           #modelHook="ngModel"
+           [(ngModel)]="modelText"
+           (ngModelChange)="handleModel(modelHook)">
+  </div>
+  <div>
+    <p>Data at handler time: <span>{{ handlerText }}</span></p>
+    <p>Data at $event time: <span>{{ eventText }}</span></p>
+    <p>Data at ngModel time: <span>{{ modelText }}</span></p>
+  </div>
+</form>
